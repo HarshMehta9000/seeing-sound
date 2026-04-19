@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Secrets
+.env
+.env.local
+*.key
+config.ini
+
+# Large binaries (keep the repo lean)
+*.psd
+*.ai
+*.sketch
+
+# Archives
+*.zip
+*.rar
+*.7z
+*.tar.gz
+
+# Big media that doesn't belong in git
+*.mp4
+*.mov
+*.wav
+*.mp3
+*.flac
+
+# Tableau backup files (keep .twbx, ignore backups)
+*.twb.bak
+
+# Stock art and misc downloaded assets
+circle-made-wavy-lines/
+black-circle-grid-background-vector/
+
+# Generated outputs you may want to regenerate instead of commit
+# Uncomment these if the CSVs get large:
+# data/csv/*.csv
+# visualizations/gallery/*.png
