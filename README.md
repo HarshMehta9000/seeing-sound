@@ -14,11 +14,13 @@ Two parallel experiments, both trying to make music visible.
 
 **Statistical views.** Using `mido` to walk MIDI messages and pull out pitch, velocity, duration, and timing. From there: piano rolls, density heatmaps, 3D scatters by note and velocity, octave histograms, normalized frequency maps. `src/final_analysis.py` produces seven different views of a single file. Some are more legible than others. That was the point.
 
-![Note frequency distribution across the chromatic scale](visualizations/gallery/Screenshot__267_.png)
+![Bohemian Rhapsody as a 3D scatter — note, duration, and velocity](visualizations/gallery/Screenshot%20%28278%29.png)
 
-![Bohemian Rhapsody piano roll — every note colored by pitch class](visualizations/gallery/Screenshot__301_.png)
+![Donna Lee as a 3D scatter — note, duration, and velocity](visualizations/gallery/Screenshot%20%28288%29.png)
 
-![Donna Lee density heatmap — note count by pitch and time](visualizations/gallery/Screenshot__302_.png)
+![Donna Lee 3D scatter with note-level inspection — G5 played 36 times at velocity 120](visualizations/gallery/Screenshot%20%28303%29.png)
+
+![Bohemian Rhapsody density heatmap — note count by pitch and time](visualizations/gallery/Screenshot%20%28279%29.png)
 
 ## The pieces
 
@@ -33,3 +35,30 @@ Jazz, rock, and classical, on purpose. I wanted the contrast.
 ## How to run it
 
 ```bash
+pip install -r requirements.txt
+python src/final_analysis.py data/midi/your_file.mid
+```
+
+Outputs go to `visualizations/gallery/` as PNGs. Tableau workbooks in `visualizations/tableau/` read from the CSVs in `data/csv/`.
+
+## Repo layout
+
+```
+seeing-sound/
+├── src/                    clean, renamed versions of the final scripts
+├── data/
+│   ├── midi/               the source files
+│   └── csv/                what the scripts produce
+├── visualizations/
+│   ├── tableau/            .twbx workbooks and .trex extensions
+│   └── gallery/            PNG exports
+└── experiments/            the iteration trail, untouched
+```
+
+## The messy middle
+
+`experiments/` holds the iteration trail. The scripts where I loaded the wrong MIDI file and didn't notice for a week, the half-finished density plots, the versions that almost worked. I'm leaving it there because the story of figuring this out is more honest than a clean pipeline.
+
+## What this became
+
+Two years on, the same curiosity runs on a GPU. PyTorch, PANNs for audio embeddings, MERT for music understanding, FastAPI and React to put it in front of people. The tools got heavier. The question didn't change.
